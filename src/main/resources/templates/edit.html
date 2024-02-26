@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Student</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+</head>
+<body>
+<div class="container">
+    <h1 class="text-center mt-5 mb-4">Edit Student</h1>
+    <form th:action="@{'/students/' + ${student.uid} + '/edit'}" method="post">
+        <div class="mb-3">
+            <label for="name" class="form-label">Name</label>
+            <input type="text" id="name" name="name" class="form-control" th:value="${student.name}">
+        </div>
+        <div class="mb-3">
+            <label for="weight" class="form-label">Weight (in lbs)</label>
+            <input type="text" id="weight" name="weight" class="form-control" th:value="${student.weight}">
+        </div>
+        <div class="mb-3">
+            <label for="height" class="form-label">Height (in cm)</label>
+            <input type="text" id="height" name="height" class="form-control" th:value="${student.height}">
+        </div>
+        <div class="mb-3">
+            <label for="hair" class="form-label">Hair Colour</label>
+            <input type="text" id="hair" name="hair" class="form-control" th:value="${student.hair}">
+        </div>
+        <div class="mb-3">
+            <label for="gpa" class="form-label">GPA</label>
+            <input type="text" id="gpa" name="gpa" class="form-control" th:value="${student.gpa}">
+        </div>
+        <div class="mb-3">
+            <label for="colour" class="form-label">Favourite Colour</label>
+            <select id="colour" name="colour" class="form-control">
+                <option value="red" th:selected="${student.colour == 'red'}">Red</option>
+                <option value="blue" th:selected="${student.colour == 'blue'}">Blue</option>
+                <option value="green" th:selected="${student.colour == 'green'}">Green</option>
+                <option value="orange" th:selected="${student.colour == 'orange'}">Orange</option>
+                <option value="purple" th:selected="${student.colour == 'purple'}">Purple</option>
+            </select>
+        </div>
+        <!-- submit button -->
+        <div class="d-grid gap-2">
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+    </form>
+</div>
+</body>
+</html>
